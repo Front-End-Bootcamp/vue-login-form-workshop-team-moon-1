@@ -3,14 +3,23 @@ import NameInput from './Inputs/NameInput.vue';
 import MailInput from './Inputs/MailInput.vue';
 import PhoneInput from './Inputs/PhoneInput.vue';
 import PasswordInput from './Inputs/PasswordInput.vue';
+import { ref } from 'vue';
 
+const registerData = ref({
+	fullname: "",
+	email: "",
+	phone: "",
+	password: "",
+	rePassword: ""
+})
 </script>
 
 <template>
-	<div>
+	<div class="wrapper">
+		<pre>{{registerData}}</pre>
 		<h1>Register</h1>
 		<div>
-			<NameInput />
+			<NameInput v-model:name="registerData.fullname"/>
 			<MailInput />
 			<PhoneInput />
 			<PasswordInput />
@@ -22,3 +31,8 @@ import PasswordInput from './Inputs/PasswordInput.vue';
 		</div>
 	</div>
 </template>
+
+<style scoped>
+
+
+</style>
