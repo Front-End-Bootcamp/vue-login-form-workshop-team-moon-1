@@ -6,20 +6,34 @@ import PasswordInput from './Inputs/PasswordInput.vue';
 import { ref } from 'vue';
 
 const registerData = ref({
-	fullname: "",
-	email: "",
-	phone: "",
-	password: "",
-	rePassword: ""
+	fullname: {
+		value: "",
+		isValid: true
+	},
+	email: {
+		value: "",
+		isValid: true
+	},
+	phone: {
+		value: "",
+		isValid: true
+	},
+	password: {
+		value: "",
+		isValid: true
+	},
+	rePassword: {
+		value: "",
+		isValid: true
+	},
 })
 </script>
 
 <template>
 	<div class="wrapper">
-		<pre>{{registerData}}</pre>
 		<h1>Register</h1>
 		<div>
-			<NameInput v-model:name="registerData.fullname"/>
+			<NameInput v-model:name="registerData.fullname.value" v-model:validation="registerData.fullname.isValid" />
 			<MailInput />
 			<PhoneInput />
 			<PasswordInput />
@@ -33,6 +47,5 @@ const registerData = ref({
 </template>
 
 <style scoped>
-
 
 </style>
